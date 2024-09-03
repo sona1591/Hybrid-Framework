@@ -1,4 +1,4 @@
-Feature: Registeration functionality scenario
+Feature: Registration functionality scenario
  
  Scenario: Verify user is able to register afte filling all the details in the fields
  
