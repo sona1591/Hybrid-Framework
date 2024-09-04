@@ -5,9 +5,9 @@ Feature: Registration functionality scenario
     Given I want to launch the application
     And I navigate to account registration page
     When I fill all the valid details
-    |FistName | Sonal   							  |
+    |FirstName | Sonal   							  |
     |LastName | Agrawal								  |
-    |Email    | sonal.agrawal@gmail.com |
+    |Email    | sonal.agrawal100@gmail.com |
     |Telephone| 1234567890							|   
     |Password | sona@123    					  |
     And I select the privacy policy
