@@ -59,6 +59,8 @@ static WebDriver driver;
 		return webElement;
 		
 	}
+	  // Overload without a custom message
+    
 	
 	public static void selectOptionInDropdown(WebElement element,String dropDownOption,long durationInSeconds) {
 		
@@ -153,8 +155,8 @@ static WebDriver driver;
 		}
 		
 	}
-
-
+	
+	
 
 	
 	

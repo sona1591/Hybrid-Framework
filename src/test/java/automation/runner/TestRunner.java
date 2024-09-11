@@ -10,8 +10,10 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features= "src/test/resources/featurefiles",
 		glue= {"stepdefinitionfile"},
-		plugin = {"pretty", "html:target/cucumber/report.html"}  
+		plugin = {"pretty", "html:target/cucumber/report.html"},
+		tags="@Four"
 		)
+		
 public class TestRunner {
 	
 

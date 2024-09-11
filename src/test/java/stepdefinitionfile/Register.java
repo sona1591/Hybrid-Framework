@@ -49,7 +49,7 @@ public class Register {
 	@When("I fill all the valid details")
 	public void i_fill_all_the_valid_details(DataTable dataTable) {
 		registerpage=new RegisterPage(driver);
-		RegisterPage.enterAllDetails(dataTable);
+		RegisterPage.enterAllDetails(dataTable,"Unique");
 		}
 
 	@And("I select the privacy policy")
@@ -57,16 +57,55 @@ public class Register {
 	   RegisterPage.PrivacyPolicy.click();
 	}
 
-	@Then("I click on continue button")
+	@And("I click on continue button")
 	public void i_click_on_continue_button() {
+		registerpage=new RegisterPage(driver);
 	RegisterPage.ContinueButton.click();
 	}
+	
+	@And("I should subscribe to newsletter")
+	public void I_should_subscribe_to_newsletter() {
+		RegisterPage.Subscribed.click();
+	}
+	
+	
 
-	@And("I should see that the user Account has successfully created")
+	@Then("I should see that the user Account has successfully created")
 	public void i_should_see_that_the_user_account_has_successfully_created() {
 		successaccountpage=new SuccessAccountPage(driver);
 		Assert.assertTrue(ElementUtils.displayStatusOfElement(SuccessAccountPage.successMsg, 10));
-		Base.quitDriver();
+		//Base.quitDriver();
 	}
+	
+	@Then("I should see that the user Account is not created")
+	public void I_should_see_that_the_user_Account_is_not_created() {
+	Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.Register, 10));
+	
+	}
+
+	@Then("I should see the error msgs informing the user to fill the mandatory fields")
+	public void I_should_see_the_error_msgs_informing_the_user_to_fill_the_mandatory_fields() {
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.FirstNamewarning, 10));
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.LastNamewarning, 10));
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.Emailwarning,10));
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.Telephonewarning, 10));
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.passwordwarning, 10));
+		Assert.assertTrue(ElementUtils.displayStatusOfElement(RegisterPage.mainwarning,10));
+		
+		
+	}
+	
+	 @When ("I fill the below duplicate details")
+	 public void I_fill_the_below_duplicate_details(DataTable dataTable) {
+		 
+		registerpage=new RegisterPage(driver);
+		RegisterPage.enterAllDetails(dataTable, "Duplicate");
+	 }
+	 
+	 @Then ("I should see that Email id already registered")
+	 public void Then_I_should_see_that_Email_id_already_registered() {
+		 
+		 Assert.assertEquals("The warning msg matched","Warning: E-Mail Address is already registered!",RegisterPage.mainwarning.getText());
+	 }
 	
 }
