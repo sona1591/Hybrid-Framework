@@ -22,5 +22,13 @@ public class HeaderSection {
 
 	@FindBy(linkText="Register")
 	public static WebElement e2;
+	
+	
+	@FindBy(linkText="Login")
+	public static WebElement e3;
+	
+	@FindBy(linkText="Logout")
+	public static WebElement e4;
+	
 
 }

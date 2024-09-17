@@ -30,11 +30,11 @@ public class Register {
 	public void i_want_to_launch_the_application() {
 		
 		driver = Base.launchSite();
-	   //driver.manage().window().maximize();
+	   driver.manage().window().maximize();
 	  
 	}
 
-	@And ("I navigate to account registration page")
+	@Given ("I navigate to account registration page")
 	public void i_navigate_to_account_registration_page() {
 		//System.out.println("HeaderSection: " + headersection);
 		//System.out.println("MyAccountLink: " + headersection.myAccountLink());
@@ -75,6 +75,9 @@ public class Register {
 		successaccountpage=new SuccessAccountPage(driver);
 		Assert.assertTrue(ElementUtils.displayStatusOfElement(SuccessAccountPage.successMsg, 10));
 		//Base.quitDriver();
+          headerSection = new HeaderSection(driver);
+		
+		HeaderSection.e4.click();	
 	}
 	
 	@Then("I should see that the user Account is not created")
