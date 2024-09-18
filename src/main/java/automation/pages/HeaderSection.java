@@ -30,5 +30,11 @@ public class HeaderSection {
 	@FindBy(linkText="Logout")
 	public static WebElement e4;
 	
+	@FindBy(xpath="//input[@placeholder=\'Search\']")
+	public static WebElement SearchField;
+	
+	@FindBy(css="button[class$='btn-lg']")
+	public static WebElement SearchBtn;
+	
 
 }

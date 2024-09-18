@@ -1,19 +1,13 @@
 package stepdefinitionfile;
 
-import static org.testng.Assert.assertTrue;
-
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-
-
 import automation.base.Base;
 import automation.pages.ForgotPasswordPage;
 import automation.pages.HeaderSection;
 import automation.pages.LoginPage;
 import automation.pages.MyAccountPage;
-import automation.pages.RegisterPage;
 import automation.reusableMethods.ElementUtils;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
