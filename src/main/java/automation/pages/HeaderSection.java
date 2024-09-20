@@ -7,8 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import automation.config.ConfigReader;
+
 public class HeaderSection {
 	private WebDriver driver;
+	private static ConfigReader configreader=  new ConfigReader();
 	
 	//constructor method 
 	public HeaderSection(WebDriver driver) {
@@ -36,5 +39,24 @@ public class HeaderSection {
 	@FindBy(css="button[class$='btn-lg']")
 	public static WebElement SearchBtn;
 	
-
+	@FindBy(xpath="//span[text()='Shopping Cart']")
+	public static WebElement ShoppingCart;
+	
+	
+	public static void NavigatetoLoginPage()
+	{
+	  e1.click();
+	  e3.click();
+	}
+	public static void SearchProduct()
+	{
+		String product =configreader.getProperty("product");
+		HeaderSection.SearchField.sendKeys(product);
+		HeaderSection.SearchBtn.click();
+	}
+	public static void ClickOnShoppingcart()
+	{
+		HeaderSection.ShoppingCart.click();
+	}
+	
 }

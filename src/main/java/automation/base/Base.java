@@ -11,12 +11,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import automation.config.ConfigReader;
+
 public class Base {
 	
 	public static WebDriver driver;
+	public static ConfigReader reader;
 	
 		public Properties prop;
 		public Properties dataProp;
+		
 			
 		public Base() {
 			driver=null;

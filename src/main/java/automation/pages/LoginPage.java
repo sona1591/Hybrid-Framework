@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import automation.config.ConfigReader;
+
 public class LoginPage {
 	
 	private WebDriver driver;
+	private static ConfigReader configreader=  new ConfigReader();
 	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -37,6 +40,15 @@ public class LoginPage {
 		LoginPage.Emailfield.sendKeys(Email);
 		LoginPage.Passwordfield.sendKeys(password);
 		LoginPage.Loginbtn.click();
+	}
+	
+	public static void DoLogin()
+	{
+		String email =configreader.getProperty("email");
+	Emailfield.sendKeys(email);
+	    String password =configreader.getProperty("password");
+		Passwordfield.sendKeys(password);
+		Loginbtn.click();
 	}
 	
 	

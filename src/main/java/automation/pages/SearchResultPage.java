@@ -21,4 +21,12 @@ public class SearchResultPage {
 	
 	@FindBy(css="input[id='button-search']+h2+p")
 	public static WebElement NoProductMatching;
+	
+	
+	@FindBy(xpath="//span[text()='Add to Cart'][1]")
+	public static WebElement FirstAddToCart;
+	
+	public static void AddFirstProductToCart() {
+		  SearchResultPage.FirstAddToCart.click();
+	}
 }
